@@ -3,7 +3,7 @@
 
 // elements
 const app = document.createElement("div");
-const balanceEl = document.createElement("p");
+const balanceEl = document.querySelector("#Balance")
 const input = document.createElement("input");
 const historyList = document.createElement("ul");
 input.type = "number";
@@ -78,6 +78,6 @@ depositBtn.addEventListener("click", () => {
 
 updateUI();
 
-app.append(balanceEl, input, depositBtn, withdrawBtn, historyList);
+app.append(input, depositBtn, withdrawBtn, historyList);
 
 document.body.append(app);
