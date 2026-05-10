@@ -3,9 +3,9 @@
 
 // elements
 const app = document.createElement("div");
-const balanceEl = document.querySelector("#Balance")
+const balanceEl = document.querySelector("#balance")
 const input = document.querySelector("#amountInput");
-const historyList = document.createElement("ul");
+const historyList = document.querySelector("#historyList");
 const withdrawBtn = document.querySelector("#withdrawBtn");
 const depositBtn = document.querySelector("#depositBtn");
 let balance = Number(localStorage.getItem("balance")) || 500;
@@ -73,6 +73,4 @@ depositBtn.addEventListener("click", () => {
 
 updateUI();
 
-app.append(historyList);
 
-document.body.append(app);
