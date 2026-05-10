@@ -4,15 +4,10 @@
 // elements
 const app = document.createElement("div");
 const balanceEl = document.querySelector("#Balance")
-const input = document.createElement("input");
+const input = document.querySelector("#amountInput");
 const historyList = document.createElement("ul");
-input.type = "number";
-input.placeholder = "Enter amount";
-input.style.padding = "8px";
-const withdrawBtn = document.createElement("button");
-withdrawBtn.textContent = "Withdraw";
-const depositBtn = document.createElement("button");
-depositBtn.textContent = "Deposit";
+const withdrawBtn = document.querySelector("#withdrawBtn");
+const depositBtn = document.querySelector("#depositBtn");
 let balance = Number(localStorage.getItem("balance")) || 500;
 let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
@@ -78,6 +73,6 @@ depositBtn.addEventListener("click", () => {
 
 updateUI();
 
-app.append(input, depositBtn, withdrawBtn, historyList);
+app.append(historyList);
 
 document.body.append(app);
