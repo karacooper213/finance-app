@@ -1,0 +1,24 @@
+{
+  "name": "finance-project",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/karacooper213/finance-app#readme",
+  "bugs": {
+    "url": "https://github.com/karacooper213/finance-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karacooper213/finance-app.git"
+  },
+  "license": "ISC",
+  "author": "Kara Cooper",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^5.0.2",
+    "express": "^5.2.1"
+  }
+}
