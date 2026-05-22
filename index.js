@@ -54,7 +54,7 @@ app.get('/transactions/new', (req, res) => {
     res.render('transactions/new');
 })
 
-app.post('/transactions', (req, res) => {
+app.post('/transactions/', (req, res) => {
     const {item, cost, type} = req.body;
     transactions.push({ item, cost: parseFloat(cost), id: uuid(), type})
     res.redirect('/transactions');

@@ -22,10 +22,14 @@ body {
 #withdrawBtn {
     background-color: red;
     color: white;
+    margin: 5px 0px;
 }
 
 #depositBtn {
     background-color: green;
+    border-color: green;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     Color: white;
+    margin: 0px 0px;
 }
 
