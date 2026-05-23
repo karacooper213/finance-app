@@ -6,7 +6,7 @@ body {
 
 .container-list {
    margin-left: 300px;
-   margin-top: 40px;
+   padding-top: 90px;
     
 }
 
@@ -46,7 +46,10 @@ body {
     position: fixed;
     height: 100%;
     overflow: auto;
+    
 }
+
+
 
 .sidebar a {
     display: block;
@@ -66,4 +69,54 @@ body {
 
 }
 
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 200px;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+  background-color: #56AAB3;
+
+}
+
+.navbar a {
+    padding: 20px;
+    color: #555657;
+    text-decoration: none;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+   
+}
+
+th {
+    text-align: left;
+    background: #56AAB3;
+    color: #1F2B3A;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
 

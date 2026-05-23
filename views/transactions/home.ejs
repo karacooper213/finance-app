@@ -12,11 +12,30 @@
 <body>
     
     <%- include('../partials/sidebar') %>
+    <%- include('../partials/navbar') %>
     <div class="container-list">
-       <% transactions.forEach(transaction => { %>
-            <p>Item: <%= transaction.item %> Cost: <%= transaction.cost %> </p>
-
-        <% }) %>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Select</th>
+                <th scope="col">Item</th>
+                <th scope="col">Type</th>
+                <th scope="col">Cost</th>
+            </tr>
+        </thead>
+        <tbody> 
+                    <% transactions.forEach(transaction => { %>
+                       <tr>
+                            <td><%= transaction.item %> </td>
+                            <td><%= transaction.type %> </td>
+                            <td><%= transaction.cost %> </td>
+                        </tr>
+                     <% }) %>
+            
+        </tbody>
+    </table>
+    
+    
     </div>
 </body>
 </html>
