@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
-   
-    
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     
-    <div class="card">
-        <h1>Finance App</h1>
-        
-            <p id="balance">Balance: <%= balance %></p>
-            <form action="/transactions" method="POST">
-                <input name="item" id="itemInput" type="text" placeholder="Enter the item"/>
-                <input name="cost" id="amountInput" type="number" placeholder="Enter a positive integer" min="1" />
-                <div>
-                    <button id="depositBtn" name ="type" value="Deposit" type="submit" >Deposit</button> 
-                    <button id="withdrawBtn" name="type" value="Withdraw" type="submit">Withdraw</button>
-                </div>
-            </form>
+    <%- include('../partials/navbar') %>
+    <div class="container-list">
+       <% transactions.forEach(transaction => { %>
+            <p>Item: <%= transaction.item %> Cost: <%= transaction.cost %> </p>
+
+        <% }) %>
     </div>
-    <script src="app.js" defer></script>
-   
 </body>
 </html>
 

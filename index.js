@@ -51,10 +51,11 @@ app.get('/transactions', (req,res) => {
 })
 
 app.get('/transactions/new', (req, res) => {
-    res.render('transactions/new');
+    const balance = getBalance();
+    res.render('transactions/new', {transactions, balance});
 })
 
-app.post('/transactions/', (req, res) => {
+app.post('/transactions', (req, res) => {
     const {item, cost, type} = req.body;
     transactions.push({ item, cost: parseFloat(cost), id: uuid(), type})
     res.redirect('/transactions');

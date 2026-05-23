@@ -1,9 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    background: #f4f4f4;
+    margin: 0;
+    background: #DFDFDF;
+}
+
+.container-list {
+   margin-left: 300px;
+   margin-top: 40px;
+    
 }
 
 
@@ -16,6 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: 40px auto;
 }
 
 
@@ -29,7 +34,36 @@ body {
     background-color: green;
     border-color: green;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    Color: white;
+    color: white;
     margin: 0px 0px;
 }
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #1F2B3A;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar a {
+    display: block;
+    color: #DFDFDF;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.sidebar a.active {
+    background-color: #56AAB3;
+    color: #DFDFDF;
+}
+
+.sidebar a:hover:not(.active){
+    background-color: #555657;
+    color: #DFDFDF;
+
+}
+
 
