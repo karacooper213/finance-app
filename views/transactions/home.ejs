@@ -13,30 +13,39 @@
     
     <%- include('../partials/sidebar') %>
     <%- include('../partials/navbar') %>
+
+    
+
     <div class="container-list">
-    <table>
-        <thead>
-            <tr>
-                <th scope="col">Select</th>
-                <th scope="col">Item</th>
-                <th scope="col">Type</th>
-                <th scope="col">Cost</th>
-            </tr>
-        </thead>
-        <tbody> 
-                    <% transactions.forEach(transaction => { %>
-                       <tr>
-                            <td><input type="checkbox"></td>
-                            <td><%= transaction.item %> </td>
-                            <td><%= transaction.type %> </td>
-                            <td><%= transaction.cost %> </td>
-                        </tr>
-                     <% }) %>
+         <form action="/transactions/new" method="GET">
+        <div class="buttons">
+            <button id="icon-btn">+</button> 
+       </div>
+     </form>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Select</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Cost</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                            <% transactions.forEach(transaction => { %>
+                            <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td><%= transaction.item %> </td>
+                                    <td><%= transaction.type %> </td>
+                                    <td><%= transaction.cost %> </td>
+                                </tr>
+                            <% }) %>
+                    
+                </tbody>
+            </table>
             
-        </tbody>
-    </table>
-    
-    
+        </div>
     </div>
 </body>
 </html>

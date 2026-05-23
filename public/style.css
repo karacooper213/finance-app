@@ -7,7 +7,7 @@ body {
 .container-list {
    margin-left: 300px;
    padding-top: 90px;
-    
+   
 }
 
 
@@ -125,3 +125,24 @@ tr:last-child td {
     border-bottom: none;
 }
 
+
+.buttons {
+    
+    display: flex;
+    width: 90%;
+   
+    justify-content: flex-end;
+}
+
+#icon-btn {
+    background: #DFDFDF;
+    color: #1F2B3A;
+    font-weight: 900;
+    font-size: xx-large;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
