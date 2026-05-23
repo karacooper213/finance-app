@@ -26,6 +26,7 @@
         <tbody> 
                     <% transactions.forEach(transaction => { %>
                        <tr>
+                            <td><input type="checkbox"></td>
                             <td><%= transaction.item %> </td>
                             <td><%= transaction.type %> </td>
                             <td><%= transaction.cost %> </td>
