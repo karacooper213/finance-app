@@ -89,6 +89,11 @@ body {
     text-decoration: none;
 }
 
+.navbar a:hover {
+    background-color: #1F2B3A;
+    color: #DFDFDF;
+}
+
 table {
     width: 90%;
     border-collapse: collapse;
