@@ -91,6 +91,12 @@ app.patch('/transactions/:id', (req, res) => {
 
 })
 
+app.delete('/transactions/:id', (req, res) => {
+    const { id } = req.params;
+    transactions = transactions.filter(t => t.id !== id);
+    res.redirect('/transactions')
+})
+
 
 
 

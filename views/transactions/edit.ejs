@@ -13,26 +13,31 @@
     
     <%- include('../partials/sidebar') %>
     <%- include('../partials/navbar') %>
-   
-   
-   <div class="container">
-        <div class="card">
-            <h1 id="newTransaction">Edit Transaction</h1>
-                <form action="/transactions/<%=transaction.id%>?_method=PATCH" method="POST">
-                    <div class = "newTransactionFields">
-                        <label> Item Name:
-                            <input name="item" id="itemInput" type="text" placeholder="Enter the item"/>
-                        </label>
-                    </div>
-                    <div class = "newTransactionFields">
-                        <label> Cost Amount:
-                            <input name="cost" id="amountInput" type="number" placeholder="Enter the cost" step="0.01" min="0" />
-                        </label>
-                    </div>
-                    <div>
-                        <button id="depositBtn" name ="type" value="Deposit" type="submit" >Deposit</button> 
-                        <button id="withdrawBtn" name="type" value="Withdraw" type="submit">Withdraw</button>
-                    </div>
-                </form>
+ 
+
+<div class="container-list">
+    <div class="container">
+            <div class="card">
+                <div id="container-header">
+                     <h1 id="newTransaction">Edit Transaction</h1>
+                </div>
+                    <form action="/transactions/<%=transaction.id%>?_method=PATCH" method="POST">
+                        <div class = "newTransactionFields">
+                            <label> Item Name:
+                                <input name="item" id="itemInput" type="text" placeholder="Enter the item"/>
+                            </label>
+                        </div>
+                        <div class = "newTransactionFields">
+                            <label> Cost Amount:
+                                <input name="cost" id="amountInput" type="number" placeholder="Enter the cost" step="0.01" min="0" />
+                            </label>
+                        </div>
+                        <div>
+                            <button id="depositBtn" name ="type" value="Deposit" type="submit" >Deposit</button> 
+                            <button id="withdrawBtn" name="type" value="Withdraw" type="submit">Withdraw</button>
+                        </div>
+                    </form>
+            </div>
         </div>
     </div>
+</div>

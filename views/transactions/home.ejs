@@ -30,7 +30,8 @@
                         <th scope="col">Item</th>
                         <th scope="col">Type</th>
                         <th scope="col">Cost</th>
-                        <th></th>
+                        <th class = "actionButtons"></th>
+                        <th class = "actionButtons"></th>
                     </tr>
                 </thead>
                 <tbody> 
@@ -39,13 +40,18 @@
                                     <td><%= transaction.item %> </td>
                                     <td><%= transaction.type %> </td>
                                     <td><%= transaction.cost %> </td>
-                                    <td>
-                                        <a href="/transactions/<%= transaction.id %>/edit">Edit</a>
-                                        
+                                    <td class = "actionButtons">
+                                         <a href="/transactions/<%= transaction.id %>/edit">
+                                            <button>Edit</button>
+                                        </a>
+                                    </td>
+                                     <td class = "actionButtons">
+                                        <form method = "POST" action="/transactions/<%= transaction.id %>?_method=DELETE">
+                                        <button>Delete</button>
+                                        </form>  
                                     </td>
                                 </tr>
                             <% }) %>
-                    
                 </tbody>
             </table>
             
