@@ -132,26 +132,22 @@ tr:last-child td {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    text-decoration: none;
     
 }
 
 .container {
     width: 300px;
-    right: 0;
     background-color: white;
     border: 1px solid black;
-    height: 100vh;
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: fixed;
-    z-index: 2;
-    top: 60px;
     
-    transform: translateX(100%);
-    transition: transform 0.5s ease;
+    top: 60px;
+    right: 300px;
+    
 }
 
-.openDrawer {
-    transform: translateX(0);
-}

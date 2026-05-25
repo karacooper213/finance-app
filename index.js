@@ -17,19 +17,19 @@ let transactions = [
         id: uuid(),
         item: 'Coffee',
         cost: 5.45,
-        type: 'Deposit'
+        type: 'Deposit',
     }, 
     {
         id: uuid(),
         item: 'instacart',
         cost: 45.53,
-        type: 'Deposit'
+        type: 'Deposit',
     },
     {
         id: uuid(),
         item: 'exit game',
         cost: 15.97,
-        type: 'Deposit'
+        type: 'Deposit',
     }
 ]
 function getBalance(){
@@ -47,19 +47,20 @@ function getBalance(){
 
 app.get('/transactions', (req,res) => {
     const balance = getBalance();
-    res.render('transactions/home', { transactions, balance });
+    res.render('transactions/home', { transactions});
 })
 
 app.get('/transactions/new', (req, res) => {
-    const balance = getBalance();
-    res.render('transactions/new', {transactions, balance});
+    res.render('transactions/new');
 })
+
 
 app.post('/transactions', (req, res) => {
     const {item, cost, type} = req.body;
     transactions.push({ item, cost: parseFloat(cost), id: uuid(), type})
     res.redirect('/transactions');
 })
+
 
 
 

@@ -13,33 +13,36 @@
     
     <%- include('../partials/sidebar') %>
     <%- include('../partials/navbar') %>
-    <%- include('../partials/mobileDrawer') %>
+   
 
     
 
     <div class="container-list">
          
         <div class="buttons">
-            <button id="icon-btn" type="button">+</button> 
+            <a href="/transactions/new" id="icon-btn">+</a>
        </div>
      
         <div>
             <table>
                 <thead>
                     <tr>
-                        <th scope="col">Select</th>
                         <th scope="col">Item</th>
                         <th scope="col">Type</th>
                         <th scope="col">Cost</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody> 
                             <% transactions.forEach(transaction => { %>
                             <tr>
-                                    <td><input type="checkbox"></td>
                                     <td><%= transaction.item %> </td>
                                     <td><%= transaction.type %> </td>
                                     <td><%= transaction.cost %> </td>
+                                    <td>
+                                        <a href="/transactions/<%= transaction.id %>/edit">Edit</a>
+                                        
+                                    </td>
                                 </tr>
                             <% }) %>
                     
