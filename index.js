@@ -62,6 +62,36 @@ app.post('/transactions', (req, res) => {
 })
 
 
+app.get('/transactions/:id', (req, res) => {
+    const { id } = req.params;
+    const transaction = transactions.find(t => t.id === id)
+    res.render('transactions/show', {transaction})
+})
+
+app.get('/transactions/:id/edit', (req, res) => {
+    const { id } = req.params;
+    const transaction = transactions.find( t => t.id === id);
+    res.render('transactions/edit', { transaction })
+})
+
+
+
+
+app.patch('/transactions/:id', (req, res) => {
+    const { id } = req.params;
+    const foundTransaction = transactions.find(t => t.id === id);
+    const newItem = req.body.item;
+    const newCost = req.body.cost;
+    
+    foundTransaction.item = newItem;
+    foundTransaction.cost = newCost;
+    
+
+    res.redirect('/transactions')
+
+})
+
+
 
 
 app.listen(3000, () => {
