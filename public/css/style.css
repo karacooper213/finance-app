@@ -164,14 +164,14 @@ tr:last-child td {
     margin-top: 0;
     
     margin-bottom: 10px;
-    background-color: #D75B56;
+    background-color: #56AAB3;
   
     
 }
 
 #newTransaction {
    margin-top: 0px;
-    color: white;
+    color: #1F2B3A;
     padding: 10px;
   
     font-size: medium;
@@ -181,4 +181,25 @@ tr:last-child td {
     margin: 20px;
 }
 
+.icon-btn-edit {
+    background: transparent;
+    border: 1px solid #1F2B3A;
+    color: #1F2B3A;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+}
 
+.icon-btn-edit:hover, .icon-btn-delete:hover{
+    background: #56AAB3;
+    color: white;
+}
+
+.icon-btn-delete {
+      background: transparent;
+    border: 1px solid #D75B56;
+    color: #D75B56;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+}

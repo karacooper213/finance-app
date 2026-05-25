@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -42,12 +43,12 @@
                                     <td><%= transaction.cost %> </td>
                                     <td class = "actionButtons">
                                          <a href="/transactions/<%= transaction.id %>/edit">
-                                            <button>Edit</button>
+                                            <button class="icon-btn-edit"><i class ="fa-solid fa-pen-to-square"></i></button>
                                         </a>
                                     </td>
                                      <td class = "actionButtons">
                                         <form method = "POST" action="/transactions/<%= transaction.id %>?_method=DELETE">
-                                        <button>Delete</button>
+                                        <button class ="icon-btn-delete"><i class="fa-solid fa-trash-can"></i></button>
                                         </form>  
                                     </td>
                                 </tr>

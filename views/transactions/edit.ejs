@@ -24,12 +24,12 @@
                     <form action="/transactions/<%=transaction.id%>?_method=PATCH" method="POST">
                         <div class = "newTransactionFields">
                             <label> Item Name:
-                                <input name="item" id="itemInput" type="text" placeholder="Enter the item"/>
+                                <input name="item" id="itemInput" type="text" value= <%= transaction.item %> placeholder="Enter the item"/>
                             </label>
                         </div>
                         <div class = "newTransactionFields">
                             <label> Cost Amount:
-                                <input name="cost" id="amountInput" type="number" placeholder="Enter the cost" step="0.01" min="0" />
+                                <input name="cost" id="amountInput" type="number" value= <%= transaction.cost %> placeholder="Enter the cost" step="0.01" min="0" />
                             </label>
                         </div>
                         <div>
