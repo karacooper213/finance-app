@@ -13,8 +13,8 @@ body {
 
 
 #withdrawBtn {
-    background-color: #D75B56;
-    border-color: #D75B56;
+    background-color:#DD4318;
+    border-color: #DD4318;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     color: white;
     margin: 5px 0px;
@@ -47,18 +47,19 @@ body {
     color: #DFDFDF;
     padding: 16px;
     text-decoration: none;
+    font-weight: bolder;
 }
 
 .sidebar p {
     top: 0;
-    color:#D75B56;
+    color:#DD4318;
     font-weight:800;
     margin: 10px;
     font-size:x-large;
 }
 
 .sidebar a:hover{
-    background-color: #D75B56;
+    background-color: #DD4318;
     color: #1F2B3A;
 
 }
@@ -87,7 +88,7 @@ body {
 
 
 .navbar a:hover {
-    background-color: #1F2B3A;
+    background-color: #DD4318;
     color: #DFDFDF;
 }
 
@@ -119,7 +120,7 @@ td {
     width: 2%;
 }
 tr:hover {
-    background-color: #da918d;
+    background-color: #e7b9ab;
 }
 
 tr:last-child td {
@@ -190,7 +191,7 @@ tr:last-child td {
 .icon-btn-edit {
     background: transparent;
     border: 1px solid #1F2B3A;
-    color: #1F2B3A;
+    color: #0F2B3A;
     padding: 6px;
     border-radius: 6px;
     cursor: pointer;
@@ -208,4 +209,11 @@ tr:last-child td {
     padding: 6px;
     border-radius: 6px;
     cursor: pointer;
+}
+
+#logo {
+    width: 170px;
+    height: auto;
+    margin-bottom: 20px;
+    margin-left: 15px;
 }
