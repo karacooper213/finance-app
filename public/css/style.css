@@ -104,7 +104,7 @@ table {
     background: white;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 2px 10px (0,0,0,0.08);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     
    
 }
@@ -125,7 +125,7 @@ td {
     width: 2%;
 }
 tr:hover {
-    background-color: #e7b9ab;
+    background-color: #f8efec;
 }
 
 tr:last-child td {
@@ -202,7 +202,7 @@ tr:last-child td {
 .icon-btn-edit {
     background: transparent;
     border: 1px solid #1F2B3A;
-    color: #0F2B3A;
+    color: #1F2B3A;
     padding: 6px;
     border-radius: 6px;
     cursor: pointer;
@@ -215,8 +215,8 @@ tr:last-child td {
 
 .icon-btn-delete {
       background: transparent;
-    border: 1px solid #4E8F97;
-    color: #D75B56;
+    border: 1px solid #DD4318;
+    color: #DD4318;
     padding: 6px;
     border-radius: 6px;
     cursor: pointer;

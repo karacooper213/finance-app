@@ -3,7 +3,15 @@ const methodOverride = require('method-override');
 const { v4: uuid } = require('uuid');
 const express = require('express');
 const app = express();
-
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/financeApp')
+.then(() => {
+    console.log("Mongo Connection open");
+}) 
+.catch(err => {
+    console.log("Oh no error!!");
+    console.log(err)
+})
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
