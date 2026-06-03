@@ -50,25 +50,20 @@ app.get('/transactions/:id', async (req, res) => {
     res.render('transactions/show', {transaction})
 })
 
-app.get('/transactions/:id/edit', (req, res) => {
+app.get('/transactions/:id/edit', async (req, res) => {
     const { id } = req.params;
-    const transaction = transactions.find( t => t.id === id);
+    const transaction = await Transaction.findById(id)
     res.render('transactions/edit', { transaction })
 })
 
 
 
 
-app.patch('/transactions/:id', (req, res) => {
+app.put('/transactions/:id', async (req, res) => {
     const { id } = req.params;
-    const foundTransaction = transactions.find(t => t.id === id);
-    const newItem = req.body.item;
-    const newCost = req.body.cost;
-    
-    foundTransaction.item = newItem;
-    foundTransaction.cost = newCost;
-    
-
+    req.body.regret = req.body.regret === 'on'
+    await Transaction.findByIdAndUpdate(id, req.body, { runValidators: true, new: true});
+    console.log(req.body);
     res.redirect('/transactions')
 
 })

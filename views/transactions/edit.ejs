@@ -15,29 +15,70 @@
     <%- include('../partials/navbar') %>
  
 
-<div class="container-list">
-    <div class="container">
-            <div class="card">
-                <div id="container-header">
-                     <h1 id="newTransaction">Edit Transaction</h1>
-                </div>
-                    <form action="/transactions/<%=transaction.id%>?_method=PATCH" method="POST">
-                        <div class = "newTransactionFields">
-                            <label> Item Name:
-                                <input name="item" id="itemInput" type="text" value= <%= transaction.item %> placeholder="Enter the item"/>
-                            </label>
-                        </div>
-                        <div class = "newTransactionFields">
-                            <label> Cost Amount:
-                                <input name="cost" id="amountInput" type="number" value= <%= transaction.cost %> placeholder="Enter the cost" step="0.01" min="0" />
-                            </label>
-                        </div>
-                        <div>
-                            <button id="depositBtn" name ="type" value="Deposit" type="submit" >Deposit</button> 
-                            <button id="withdrawBtn" name="type" value="Withdraw" type="submit">Withdraw</button>
-                        </div>
-                    </form>
+    <div class="container-list">
+        <div class="container">
+            
+                    <div id="container-header">
+                        <h1 id="newTransaction">Edit Transaction</h1>
+                    </div>
+                        <form id="newForm" action="/transactions/<%=transaction._id%>?_method=PUT" method="POST">
+                            <div class="itemGroup">
+                                <div>
+                                    <label for="item">Item Purchased</label> 
+                                    <input type="text" name="item" placeholder="Item Name" value="<%=transaction.item%>"/>
+                                </div>
+                                <div>
+                                    <label for="amount">$ Amount</label>
+                                    <input type="number" name="amount" placeholder="Amount" step="0.01" min="0" value="<%=transaction.amount%>" />
+                                </div>
+                                <div>
+                                    <label for="vendor">Vendor</label>
+                                    <input type="text" name="vendor" placeholder="Vendor" value="<%=transaction.vendor%>"/>
+                                </div>
+                            </div>
+                            <div class="itemType">
+                                <div>
+                                    <label for="transactionType">Transaction Type</label>
+                                    <select name="transactionType" id="transactionType" value="<%=transaction.transactionType%>">
+                                            <option value="Withdraw">Withdraw</option>
+                                            <option value="Deposit">Deposit</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="category">Select Category</label>
+                                    <select name="category" id="category" value="<%=transaction.category%>">
+                                        <option value="Housing">Housing</option>
+                                        <option value="Food">Food</option>
+                                        <option value="Transportation">Transportation</option>
+                                        <option value="Utilities">Utilities</option>
+                                        <option value="Insurance">Insurance</option>
+                                        <option value="Medical & Healthcare">Medical & Healthcare</option>
+                                        <option value="Debt">Debt</option>
+                                        <option value="Savings">Savings</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Fun">Fun</option>
+                                        <option value="Household Supplies">Household Supplies</option>
+                                        <option value="Misc">Misc</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="date">Date Purchased</label>
+                                    <input type="date" id="date" name="date" value="<%=transaction.date.getUTCFullYear() %>-<%= String(transaction.date.getUTCMonth() + 1).padStart(2, '0') %>-<%= String(transaction.date.getUTCDate()).padStart(2, '0') %>">
+                                </div>
+                            </div>
+                            <div class = "purchaseDetails">
+                                <div>
+                                    <label for="regret">Did you regret this purchase?</label>
+                                    <input type="checkbox" name="regret" <%= transaction.regret ? 'checked' : '' %>/>
+                                </div>
+                            
+                            </div>
+                            <div class="saveTransaction">
+                                <button class="submitButton" type="submit">Save Transaction</button>
+                            </div>
+                        </form>
+            
             </div>
         </div>
     </div>
-</div>
+</body>

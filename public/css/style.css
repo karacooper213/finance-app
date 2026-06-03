@@ -286,5 +286,17 @@ td.Withdraw {
 .saveTransaction {
   display: flex;
   justify-content: flex-end;
-  margin-top: 100px;
+  margin-top: 85px;
+  color:#1F2B3A;
+  
+}
+
+.submitButton {
+    background-color:#1F2B3A;
+    color: white;
+    padding: 5px;
+}
+
+.submitButton:hover {
+    background:#667385;
 }
