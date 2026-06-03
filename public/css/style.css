@@ -187,10 +187,10 @@ tr:last-child td {
 
 #newTransaction {
    margin-top: 0px;
-    color: #1F2B3A;
+    color: white;
     padding: 10px;
   
-    font-size: medium;
+    font-size: x-large;
 }
 
 
@@ -242,4 +242,49 @@ tr:last-child td {
 td.Withdraw {
     color: #DD4318;
    
+}
+
+#newForm{
+    height: 350px;
+    padding: 15px;
+    gap: 20px;
+    font-size: larger;
+    
+}
+
+.itemGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.itemType {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.purchaseDetails {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#newForm input, #newForm select {
+    width: 200px;
+   
+  
+   
+}
+#newForm input[type="checkbox"] {
+    width: auto;
+}
+
+.saveTransaction {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 100px;
 }
