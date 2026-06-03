@@ -20,21 +20,40 @@
                 <div id = "container-header">
                          <h1 id="newTransaction">New Transaction</h1>
                 </div>
-                    <form id="newForm " action="/transactions" method="POST">
-                        <div class = "newTransactionFields">
-                            <label id="itemName"> Item Name:
-                                <input name="item" id="itemInput" type="text" placeholder="Enter the item"/>
-                            </label>
-                        </div>
-                        <div class = "newTransactionFields">
-                            <label id="costAmount"> Cost Amount:
-                                <input name="cost" id="amountInput" type="number" placeholder="Enter the cost" step="0.01" min="0" />
-                            </label>
-                        </div>
-                        <div>
-                            <button id="depositBtn" name ="type" value="Deposit" type="submit" >Deposit</button> 
-                            <button id="withdrawBtn" name="type" value="Withdraw" type="submit">Withdraw</button>
-                        </div>
+                    <form id="newForm" action="/transactions" method="POST">
+                        
+                        <label for="item">Item Purchased</label> 
+                        <input type="text" name="item" placeholder="Item Name"/>
+                        <label for="amount">Amount</label>
+                        <input type="number" name="amount" placeholder="Amount" step="0.01" min="0" />
+                        <label for="category">Select Category</label>
+                        <select name="category" id="category">
+                            <option value="Housing">Housing</option>
+                            <option value="Food">Food</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Insurance">Insurance</option>
+                            <option value="Medical & Healthcare">Medical & Healthcare</option>
+                            <option value="Debt">Debt</option>
+                            <option value="Savings">Savings</option>
+                            <option value="Education">Education</option>
+                            <option value="Fun">Fun</option>
+                            <option value="Household Supplies">Household Supplies</option>
+                            <option value="Misc">Misc</option>
+                        </select>
+                        <label for="date">Transaction Date</label>
+                        <input type="date" id="date" name="date">
+                        <label for="vendor">Vendor</label>
+                        <input type="text" name="vendor" placeholder="Vendor"/>
+                        <label for="regret">Did you regret this purchase?</label>
+                        <input type="checkbox" name="regret"/>
+                        <label for="transactionType">Transaction Type</label>
+                        <select name="transactionType" id="transactionType">
+                            <option value="Withdraw">Withdraw</option>
+                            <option value="Deposit">Deposit</option>
+                        </select>
+
+                        <button type="submit">Save Transaction</button>
                     </form>
             
         </div>

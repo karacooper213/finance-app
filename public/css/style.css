@@ -5,7 +5,7 @@ body {
 }
 
 .container-list {
-   margin-left: 300px;
+   margin-left: 350px;
    padding-top: 90px;
    
 }
@@ -31,7 +31,7 @@ body {
 .sidebar {
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 250px;
     background-color: #1F2B3A;
     position: fixed;
     height: 100%;
@@ -69,7 +69,7 @@ body {
 .navbar {
   position: fixed;
   top: 0;
-  left: 200px;
+  left: 250px;
   right: 0;
   height: 60px;
   display: flex;
@@ -223,18 +223,23 @@ tr:last-child td {
 }
 
 #logo {
-    width: 240px;
+    width: 250px;
     height: auto;
     margin-bottom: -30px;
-    margin-left: -20px;
+    margin-left: 0px;
 }
 
 #fox {
     
     margin-top: auto;
-    width: 200px;
+    width: 250px;
     align-self: center;
     margin-bottom: 20px;
     
 
+}
+
+td.Withdraw {
+    color: #DD4318;
+   
 }

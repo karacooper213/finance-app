@@ -4,6 +4,8 @@ const { v4: uuid } = require('uuid');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const Transaction = require('./models/transaction');
+
 mongoose.connect('mongodb://localhost:27017/financeApp')
 .then(() => {
     console.log("Mongo Connection open");
@@ -20,59 +22,31 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-let transactions = [
-    {
-        id: uuid(),
-        item: 'Coffee',
-        cost: 5.45,
-        type: 'Deposit',
-    }, 
-    {
-        id: uuid(),
-        item: 'instacart',
-        cost: 45.53,
-        type: 'Deposit',
-    },
-    {
-        id: uuid(),
-        item: 'exit game',
-        cost: 15.97,
-        type: 'Deposit',
-    }
-]
-function getBalance(){
-    let balance = 0;
 
-    for (let t of transactions){
-        if (t.type === 'Deposit') {
-        balance += Number(t.cost);
-        } else { 
-            balance -= Number(t.cost);
-        }
-    }
-    return balance;
-}
 
-app.get('/transactions', (req,res) => {
-    const balance = getBalance();
-    res.render('transactions/home', { transactions});
+app.get('/transactions', async (req,res) => {
+    const transactions = await Transaction.find({})
+    res.render('transactions/home', { transactions });
 })
 
-app.get('/transactions/new', (req, res) => {
+app.get('/transactions/new',(req, res) => {
     res.render('transactions/new');
 })
 
 
-app.post('/transactions', (req, res) => {
-    const {item, cost, type} = req.body;
-    transactions.push({ item, cost: parseFloat(cost), id: uuid(), type})
-    res.redirect('/transactions');
+app.post('/transactions', async (req, res) => {
+    req.body.regret = (req.body.regret === 'on');
+    const newTransaction = new Transaction(req.body)
+    await newTransaction.save();
+    console.log(newTransaction);
+    res.redirect('/transactions')
+   
 })
 
 
-app.get('/transactions/:id', (req, res) => {
+app.get('/transactions/:id', async (req, res) => {
     const { id } = req.params;
-    const transaction = transactions.find(t => t.id === id)
+    const transaction = await Transaction.findById(id)
     res.render('transactions/show', {transaction})
 })
 

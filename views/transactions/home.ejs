@@ -29,8 +29,11 @@
                 <thead>
                     <tr>
                         <th scope="col">Item</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Cost</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Date Purchased</th>
+                        <th scope="col">Vendor</th>
+                        <th scope="col">Regret?</th>
                         <th class = "actionButtons"></th>
                         <th class = "actionButtons"></th>
                     </tr>
@@ -39,8 +42,13 @@
                             <% transactions.forEach(transaction => { %>
                             <tr>
                                     <td><%= transaction.item %> </td>
-                                    <td><%= transaction.type %> </td>
-                                    <td><%= transaction.cost %> </td>
+                                    <td class="<%= transaction.transactionType %>">
+                                         <%= transaction.amount %>
+                                    </td>
+                                    <td><%= transaction.category %> </td>
+                                    <td><%= transaction.date.toLocaleDateString('en-US') %> </td>
+                                    <td><%= transaction.vendor %> </td>
+                                    <td><%= transaction.regret %> </td>
                                     <td class = "actionButtons">
                                          <a href="/transactions/<%= transaction.id %>/edit">
                                             <button class="icon-btn-edit"><i class ="fa-solid fa-pen-to-square"></i></button>
