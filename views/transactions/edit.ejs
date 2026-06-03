@@ -24,7 +24,7 @@
                         <form id="newForm" action="/transactions/<%=transaction._id%>?_method=PUT" method="POST">
                             <div class="itemGroup">
                                 <div>
-                                    <label for="item">Item Purchased</label> 
+                                    <label for="item">Item</label> 
                                     <input type="text" name="item" placeholder="Item Name" value="<%=transaction.item%>"/>
                                 </div>
                                 <div>
@@ -40,24 +40,25 @@
                                 <div>
                                     <label for="transactionType">Transaction Type</label>
                                     <select name="transactionType" id="transactionType" value="<%=transaction.transactionType%>">
-                                            <option value="Withdraw">Withdraw</option>
-                                            <option value="Deposit">Deposit</option>
+                                            <option value="Withdraw"<%=transaction.transactionType === 'Withdraw' ? 'selected': ''%> >Withdraw</option>
+                                            <option value="Deposit" <%=transaction.transactionType === 'Deposit' ? 'selected': ''%> >Deposit</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label for="category">Select Category</label>
                                     <select name="category" id="category" value="<%=transaction.category%>">
-                                        <option value="Housing">Housing</option>
-                                        <option value="Food">Food</option>
-                                        <option value="Transportation">Transportation</option>
-                                        <option value="Utilities">Utilities</option>
-                                        <option value="Insurance">Insurance</option>
-                                        <option value="Medical & Healthcare">Medical & Healthcare</option>
-                                        <option value="Debt">Debt</option>
-                                        <option value="Savings">Savings</option>
-                                        <option value="Education">Education</option>
-                                        <option value="Fun">Fun</option>
-                                        <option value="Household Supplies">Household Supplies</option>
+                                        <option value="Income" <%=transaction.category === 'Income' ? 'selected': ''%>>Income</option>
+                                        <option value="Housing" <%=transaction.category === 'Housing' ? 'selected': ''%>>Housing</option>
+                                        <option value="Food"<%=transaction.category === 'Food' ? 'selected': ''%>>Food</option>
+                                        <option value="Transportation" <%=transaction.category === 'Transportation' ? 'selected': ''%>>Transportation</option>
+                                        <option value="Utilities" <%=transaction.category === 'Utilities' ? 'selected': ''%>>Utilities</option>
+                                        <option value="Insurance" <%=transaction.category === 'Insurance' ? 'selected': ''%>>Insurance</option>
+                                        <option value="Medical & Healthcare"<%=transaction.category === 'Medical & Healthcare' ? 'selected': ''%> >Medical & Healthcare</option>
+                                        <option value="Debt" <%=transaction.category === 'Debt' ? 'selected': ''%>>Debt</option>
+                                        <option value="Savings" <%=transaction.category === 'Savings' ? 'selected': ''%>>Savings</option>
+                                        <option value="Education" <%=transaction.category === 'Education' ? 'selected': ''%>>Education</option>
+                                        <option value="Fun" <%=transaction.category === 'Fun' ? 'selected': ''%>>Fun</option>
+                                        <option value="Household Supplies" <%=transaction.category === 'Household Supplies' ? 'selected': ''%>>Household Supplies</option>
                                         <option value="Misc">Misc</option>
                                     </select>
                                 </div>

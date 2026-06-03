@@ -68,9 +68,9 @@ app.put('/transactions/:id', async (req, res) => {
 
 })
 
-app.delete('/transactions/:id', (req, res) => {
+app.delete('/transactions/:id', async (req, res) => {
     const { id } = req.params;
-    transactions = transactions.filter(t => t.id !== id);
+    const deletedTransaction = await Transaction.findByIdAndDelete(id);
     res.redirect('/transactions')
 })
 
