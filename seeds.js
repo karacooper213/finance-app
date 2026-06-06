@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Transaction = require('./models/transaction');
+const Transaction = require('./Models/transaction');
 
 mongoose.connect('mongodb://localhost:27017/financeApp')
 .then(() => {

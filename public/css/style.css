@@ -300,3 +300,54 @@ td.Withdraw {
 .submitButton:hover {
     background:#667385;
 }
+
+.summaryBlocks {
+    background-color: white;
+    width: 20%;
+    height: 10vh;
+    border-radius: 10px;
+    overflow: hidden;
+   
+}
+
+.totalTitle {
+   
+    margin-top: 5px;
+    padding: 3px;
+    font-size: 10px;
+    
+    
+
+}
+
+#totalIncomeTitle h2{
+    margin: 0px;
+}
+
+.line {
+    
+    height: 1vh;
+  
+}
+
+#analysisCards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#totalIncomeColor {
+    background-color:#1F2B3A;
+}
+
+#totalSpendingColor {
+    background-color:#DD4318;
+}
+
+#netSavingsColor {
+    background-color:#56AAB3;
+}
+
+#regretRateColor {
+    background-color: #45576B;
+}

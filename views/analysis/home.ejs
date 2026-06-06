@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnalysisHome</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    
+    <%- include('../partials/sidebar') %>
+  
+    <%- include('../partials/navbar') %>
+    <div class="container-list" id="analysisCards">
+        <div id="totalIncome" class="summaryBlocks">
+            <div class="line" id="totalIncomeColor" >
+            </div>
+            <div class="totalTitle">
+                <h2>Total Income</h2>
+            </div>
+            <%= totalIncome %>
+        </div>
+
+        <div id="totalSpending" class="summaryBlocks">
+            <div class="line" id="totalSpendingColor">
+            </div>
+            <div class="totalTitle">
+                <h2>Total Spending</h2>
+            </div>
+            <%= totalIncome %>
+        </div>
+
+        <div id="netSavings" class="summaryBlocks">
+            <div class="line" id="netSavingsColor" >
+            </div>
+            <div class="totalTitle">
+                <h2>Net Savings</h2>
+            </div>
+            <%= totalIncome %>
+        </div>
+
+        <div id="regretRate" class="summaryBlocks">
+            <div class="line" id="regretRateColor">
+            </div>
+            <div class="totalTitle">
+                <h2>Regret Rate</h2>
+            </div>
+            <%= totalIncome %>
+        </div>
+    </div>
+  
+</body>
+</html>

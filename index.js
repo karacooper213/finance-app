@@ -4,7 +4,7 @@ const { v4: uuid } = require('uuid');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const Transaction = require('./models/transaction');
+const Transaction = require('./Models/transaction');
 
 mongoose.connect('mongodb://localhost:27017/financeApp')
 .then(() => {
@@ -74,8 +74,27 @@ app.delete('/transactions/:id', async (req, res) => {
     res.redirect('/transactions')
 })
 
+//---------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------Analysis-----------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+app.get('/analysis', async (req, res) => {
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() -3)
+    let totalIncome = 0;
+    const income = await Transaction.find({
+        transactionType: 'Deposit',
+        date: {
+            $gte: threeMonthsAgo
+        }
+    })
 
+    for (let i in income) {
+        totalIncome += income[i].amount;
+    }
+
+    res.render('analysis/home', { totalIncome })
+})
 
 app.listen(3000, () => {
     console.log('Serving on port 3000');
