@@ -7,6 +7,8 @@ body {
 .container-list {
    margin-left: 350px;
    padding-top: 90px;
+   padding-right: 100px;
+   display: block;
    
 }
 
@@ -98,7 +100,7 @@ body {
 }
 
 table {
-    width: 90%;
+    width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     background: white;
@@ -136,7 +138,7 @@ tr:last-child td {
 .buttons {
     
     display: flex;
-    width: 90%;
+    width: 100%;
    
     justify-content: flex-end;
 }
@@ -152,6 +154,7 @@ tr:last-child td {
     border-radius: 8px;
     cursor: pointer;
     text-decoration: none;
+    margin-right: 0px;
     
 }
 
@@ -303,8 +306,8 @@ td.Withdraw {
 
 .summaryBlocks {
     background-color: white;
-    width: 20%;
-    height: 10vh;
+    width: 25%;
+    height: 15vh;
     border-radius: 10px;
     overflow: hidden;
    
@@ -333,7 +336,7 @@ td.Withdraw {
 #analysisCards {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 20px;
 }
 
 #totalIncomeColor {
@@ -351,3 +354,48 @@ td.Withdraw {
 #regretRateColor {
     background-color: #45576B;
 }
+
+.container-analysis {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    height: 150px;
+    
+}
+
+#foxTarget img{
+    margin-right: 0px;
+    height: 100%;
+  
+   
+   
+}
+
+#analysisTitles{
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+h1 {
+    color:#1F2B3A;
+    font-size: 50px;
+    padding-bottom: 15px;
+    margin: 5px;
+    border-bottom: 2px solid #4E8F97;
+}
+
+p {
+    margin-top: 15px;
+    color:#4E8F97;
+    font-size: 15px;
+    
+
+}
+
+
+
+

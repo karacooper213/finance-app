@@ -15,41 +15,52 @@
     <%- include('../partials/sidebar') %>
   
     <%- include('../partials/navbar') %>
-    <div class="container-list" id="analysisCards">
-        <div id="totalIncome" class="summaryBlocks">
-            <div class="line" id="totalIncomeColor" >
-            </div>
-            <div class="totalTitle">
-                <h2>Total Income</h2>
-            </div>
-            <%= totalIncome %>
-        </div>
 
-        <div id="totalSpending" class="summaryBlocks">
-            <div class="line" id="totalSpendingColor">
+          
+    <div class="container-list">
+       <div class="container-analysis">
+            <div id="analysisTitles">
+                <h1>Spending Analysis</h1>
+                <p>Target Calculation & Recommendations</p> 
             </div>
-            <div class="totalTitle">
-                <h2>Total Spending</h2>
-            </div>
-            <%= totalIncome %>
+            <div class="pageImages" id="foxTarget"> <img src="/images/targets2.png"></div>
         </div>
+        <div id="analysisCards">
+            <div id="totalIncome" class="summaryBlocks">
+                <div class="line" id="totalIncomeColor" >
+                </div>
+                <div class="totalTitle">
+                    <h2>Total Income</h2>
+                </div>
+                <h2>$<%= totalIncome %></h2>
+            </div>
 
-        <div id="netSavings" class="summaryBlocks">
-            <div class="line" id="netSavingsColor" >
+            <div id="totalSpending" class="summaryBlocks">
+                <div class="line" id="totalSpendingColor">
+                </div>
+                <div class="totalTitle">
+                    <h2>Total Spending</h2>
+                </div>
+               <h2>$<%= totalSpending %></h2>
             </div>
-            <div class="totalTitle">
-                <h2>Net Savings</h2>
-            </div>
-            <%= totalIncome %>
-        </div>
 
-        <div id="regretRate" class="summaryBlocks">
-            <div class="line" id="regretRateColor">
+            <div id="netSavings" class="summaryBlocks">
+                <div class="line" id="netSavingsColor" >
+                </div>
+                <div class="totalTitle">
+                    <h2>Net Savings</h2>
+                </div>
+                <h2>$<%= netSavings %></h2>
             </div>
-            <div class="totalTitle">
-                <h2>Regret Rate</h2>
+
+            <div id="regretRate" class="summaryBlocks">
+                <div class="line" id="regretRateColor">
+                </div>
+                <div class="totalTitle">
+                    <h2>Regret Rate</h2>
+                </div>
+                <h2><%= regretRateRounded %>%</h2> 
             </div>
-            <%= totalIncome %>
         </div>
     </div>
   

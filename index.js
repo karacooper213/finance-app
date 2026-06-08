@@ -79,13 +79,16 @@ app.delete('/transactions/:id', async (req, res) => {
 //---------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 app.get('/analysis', async (req, res) => {
-    const threeMonthsAgo = new Date();
-    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() -3)
+    const now = new Date();
+    const startOfCurrentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+    const threeMonthsAgo = new Date(now.getFullYear(), now.getMonth() -4, 1);
+
     let totalIncome = 0;
     const income = await Transaction.find({
         transactionType: 'Deposit',
         date: {
-            $gte: threeMonthsAgo
+            $gte: threeMonthsAgo,
+            $lt: startOfCurrentMonth
         }
     })
 
@@ -93,7 +96,39 @@ app.get('/analysis', async (req, res) => {
         totalIncome += income[i].amount;
     }
 
-    res.render('analysis/home', { totalIncome })
+    let totalSpending = 0;
+    const spending = await Transaction.find({
+        transactionType: 'Withdraw',
+        date: {
+            $gte: threeMonthsAgo,
+            $lt: startOfCurrentMonth
+        }
+    })
+
+    for (let s in spending) {
+        totalSpending += spending[s].amount;
+    }
+
+    const savings = totalIncome - totalSpending;
+    const netSavings = savings.toFixed(2);
+
+    let regretSpending = 0;
+    const regret = await Transaction.find({
+        regret: true,
+        date: {
+            $gte: threeMonthsAgo,
+            $lt: startOfCurrentMonth
+        }
+    })
+
+    for (let r in regret){
+        regretSpending += regret[r].amount;
+    }
+
+    const regretRate = regretSpending/totalSpending * 100;
+    const regretRateRounded = regretRate.toFixed(2);
+
+    res.render('analysis/home', { totalIncome, totalSpending, netSavings, regretRateRounded })
 })
 
 app.listen(3000, () => {
