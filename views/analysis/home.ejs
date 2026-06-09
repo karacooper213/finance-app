@@ -62,6 +62,62 @@
                 <h2><%= regretRateRounded %>%</h2> 
             </div>
         </div>
+
+        <div id="doughnutGraph">
+            <h2>Spending by Category</h2>
+            <canvas
+                     id="myChart" width = "500">
+             </canvas>
+
+       
+
+        </div>
+            <script
+                src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0">
+            </script>
+            
+            <script>
+                    const labels = <%- JSON.stringify(labels) %>;
+                    const yValues = <%- JSON.stringify(totals) %>;
+
+                    const barColors = [
+                            "#1F2B3A", 
+                            "#DD4318", 
+                            "#2CA02C", 
+                            "#1F77B4", 
+                            "#FF7F0E", 
+                            "#9467BD", 
+                            "#E377C2", 
+                            "#D62728", 
+                            "#17BECF", 
+                            "#8C564B", 
+                            "#F28E2B",
+                            "#BCBD22",
+                            "#59A14F", 
+                           
+                    ]
+
+                    new Chart("myChart", {
+                        type: "doughnut",
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                backgroundColor: barColors,
+                                data: yValues
+                            }]
+                        },
+                        options: {
+                            responsive: false,
+                           
+                        }
+                    });
+
+                    function resize() {
+                        myChart.resize(600, 450);
+                    }
+            </script>
+     
+     </div>
     </div>
   
 </body>

@@ -82,6 +82,8 @@ app.get('/analysis', async (req, res) => {
     const now = new Date();
     const startOfCurrentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
     const threeMonthsAgo = new Date(now.getFullYear(), now.getMonth() -4, 1);
+    const labels = ['Housing', 'Food', 'Transportation', 'Utilities', 'Insurance', 'Medical & Healthcare', 'Debt', 'Savings', 'Education', 'Fun', 'Household Supplies', 'Giving', 'Misc'];
+    const totals = [];
 
     let totalIncome = 0;
     const income = await Transaction.find({
@@ -128,7 +130,33 @@ app.get('/analysis', async (req, res) => {
     const regretRate = regretSpending/totalSpending * 100;
     const regretRateRounded = regretRate.toFixed(2);
 
-    res.render('analysis/home', { totalIncome, totalSpending, netSavings, regretRateRounded })
+ //-------------------------------------------Calculate Totals for each category-----------------------------------------------------------------//
+
+    // total for 
+
+    for (let i =0; i<labels.length; i++) {
+        let categorySpending = 0;
+        const catSpend = await Transaction.find({
+            category: labels[i],
+            transactionType: 'Withdraw',
+            date: {
+                $gte: threeMonthsAgo,
+                $lt: startOfCurrentMonth
+            }
+
+        })
+
+        for (let c in catSpend){
+            categorySpending += catSpend[c].amount;
+        }
+       
+        totals.push(categorySpending);
+    }
+
+
+   
+
+    res.render('analysis/home', { totalIncome, totalSpending, netSavings, regretRateRounded, labels, totals })
 })
 
 app.listen(3000, () => {
