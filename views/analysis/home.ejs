@@ -62,63 +62,134 @@
                 <h2><%= regretRateRounded %>%</h2> 
             </div>
         </div>
+        <div id="charts">
+                <div id="doughnutGraph">
+                    <h2>Spending by Category</h2>
+                    <div class="doughnut-chart-box">
+                        <canvas
+                                id="myChart" >
+                        </canvas>
+                    </div>
+            </div>
 
-        <div id="doughnutGraph">
-            <h2>Spending by Category</h2>
-            <canvas
-                     id="myChart" width = "500">
-             </canvas>
+                <div>
+                    <script
+                        src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0">
+                    </script>
+                    
+                    <script>
+                            const labels2 = <%- JSON.stringify(labels) %>;
+                            const yValues = <%- JSON.stringify(totals) %>;
 
-       
+                            const barColors = [
+                                    "#1F2B3A", 
+                                    "#DD4318", 
+                                    "#2CA02C", 
+                                    "#1F77B4", 
+                                    "#FF7F0E", 
+                                    "#9467BD", 
+                                    "#E377C2", 
+                                    "#D62728", 
+                                    "#17BECF", 
+                                    "#8C564B", 
+                                    "#F28E2B",
+                                    "#BCBD22",
+                                    "#59A14F", 
+                                
+                            ]
 
-        </div>
-            <script
-                src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0">
-            </script>
+                            new Chart("myChart", {
+                                type: "doughnut",
+                                data: {
+                                    labels: labels2,
+                                    datasets: [{
+                                        backgroundColor: barColors,
+                                        data: yValues
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        legend: {
+                                            position: 'right'
+                                        }
+                                    }
+                                }
+                            });
+
+                          
+                    </script>
             
-            <script>
-                    const labels = <%- JSON.stringify(labels) %>;
-                    const yValues = <%- JSON.stringify(totals) %>;
+            
+                </div>
 
-                    const barColors = [
-                            "#1F2B3A", 
-                            "#DD4318", 
-                            "#2CA02C", 
-                            "#1F77B4", 
-                            "#FF7F0E", 
-                            "#9467BD", 
-                            "#E377C2", 
-                            "#D62728", 
-                            "#17BECF", 
-                            "#8C564B", 
-                            "#F28E2B",
-                            "#BCBD22",
-                            "#59A14F", 
+                <div id="barGraph">
+                    <h2>Regret Rate by Category</h2>
+                    <div class="bar-chart-box">
+                        <canvas
+                                id="myChart2" >
+                        </canvas>
+                    </div>
+
+            
+
+                </div>
+                <div>
+            
+                    <script>
+                            const labels3 = <%- JSON.stringify(labels) %>;
+                            const yValues3 = <%- JSON.stringify(regretRates) %>;
+
+                            const barColors2 = [
+                                    "#1F2B3A", 
+                                    "#DD4318", 
+                                    "#2CA02C", 
+                                    "#1F77B4", 
+                                    "#FF7F0E", 
+                                    "#9467BD", 
+                                    "#E377C2", 
+                                    "#D62728", 
+                                    "#17BECF", 
+                                    "#8C564B", 
+                                    "#F28E2B",
+                                    "#BCBD22",
+                                    "#59A14F", 
+                                
+                            ]
+
+                            new Chart("myChart2", {
+                                type: "bar",
+                                data: {
+                                    labels: labels3,
+                                    datasets: [{
+                                        backgroundColor: barColors2,
+                                        data: yValues3
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    },
+                                    maintainAspectRatio: false
+                                    
+                                
+                                }
+                            
+
+                            
+                            });
                            
-                    ]
-
-                    new Chart("myChart", {
-                        type: "doughnut",
-                        data: {
-                            labels: labels,
-                            datasets: [{
-                                backgroundColor: barColors,
-                                data: yValues
-                            }]
-                        },
-                        options: {
-                            responsive: false,
-                           
-                        }
-                    });
-
-                    function resize() {
-                        myChart.resize(600, 450);
-                    }
-            </script>
-     
-     </div>
+                          
+                    </script>
+            </div>
+        </div>
     </div>
+
+
   
 </body>
 </html>
