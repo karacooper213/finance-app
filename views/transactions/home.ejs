@@ -34,6 +34,7 @@
                         <th scope="col">Date Purchased</th>
                         <th scope="col">Vendor</th>
                         <th scope="col">Regret?</th>
+                        <th scope="col">Need vs Want</th>
                         <th class = "actionButtons"></th>
                         <th class = "actionButtons"></th>
                     </tr>
@@ -43,12 +44,13 @@
                             <tr>
                                     <td><%= transaction.item %> </td>
                                     <td class="<%= transaction.transactionType %>">
-                                         <%= transaction.amount %>
+                                         $<%= transaction.amount %>
                                     </td>
                                     <td><%= transaction.category %> </td>
                                     <td><%= transaction.date.toLocaleDateString('en-US') %> </td>
                                     <td><%= transaction.vendor %> </td>
                                     <td><%= transaction.regret %> </td>
+                                    <td><%= transaction.necessity %></td>
                                     <td class = "actionButtons">
                                          <a href="/transactions/<%= transaction.id %>/edit">
                                             <button class="icon-btn-edit"><i class ="fa-solid fa-pen-to-square"></i></button>

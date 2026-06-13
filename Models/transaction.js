@@ -20,7 +20,7 @@ const transactionSchema = new mongoose.Schema({
 
     category: {
         type: String,
-        enum: ['Income', 'Housing', 'Food', 'Transportation', 'Utilities', 'Insurance', 'Medical', 'Debt', 'Savings', 'Education', 'Fun', 'Household Supplies', 'Giving', 'Misc'],
+        enum: ['Income', 'Housing', 'Food', 'Transportation', 'Utilities', 'Insurance', 'Medical', 'Debt', 'Savings', 'Education', 'Fun', 'Household', 'Giving', 'Misc'],
         required: false
     },
 
@@ -36,8 +36,16 @@ const transactionSchema = new mongoose.Schema({
 
     regret: {
         type: Boolean,
-        default: false
-    }
+        default: false,
+        required: true
+    },
+
+    necessity: {
+        type: String,
+        enum: ['Need', 'Need (Cheaper Option Available)', 'Want'],
+        required: true,
+        default: 'Need'
+    },
     
 })
 

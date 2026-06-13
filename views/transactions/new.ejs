@@ -71,8 +71,17 @@
                                 <label for="regret">Did you regret this purchase?</label>
                                 <input type="checkbox" name="regret"/>
                             </div>
+                            <div>
+                                <label for="necessity">Was this a want or a need?</label>
+                                <select name="necessity" id="necessity">
+                                    <option value='Need'>Need</option>
+                                    <option value='Need (Cheaper Option Available)'>Need (Cheaper Option Available) </option>
+                                    <option value='Want'>Want</option>
+                                </select>
+                            </div>
                           
                         </div>
+                        
                         <div class="saveTransaction">
                             <button class="submitButton" type="submit">Save Transaction</button>
                         </div>

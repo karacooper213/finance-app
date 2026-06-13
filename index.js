@@ -82,58 +82,68 @@ app.get('/analysis', async (req, res) => {
     const now = new Date();
     const startOfCurrentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
     const threeMonthsAgo = new Date(now.getFullYear(), now.getMonth() -4, 1);
-    const labels = ['Housing', 'Food', 'Transportation', 'Utilities', 'Insurance', 'Medical & Healthcare', 'Debt', 'Savings', 'Education', 'Fun', 'Household Supplies', 'Giving', 'Misc'];
+    const labels = ['Housing', 'Food', 'Transportation', 'Utilities', 'Insurance', 'Medical', 'Debt', 'Savings', 'Education', 'Fun', 'Household', 'Giving', 'Misc'];
     const totals = [];
     const regretRates = [];
 
+    const transaction = await Transaction.find({
+        date: {
+            $gte: threeMonthsAgo,
+            $lt: startOfCurrentMonth
+        }
+    })
+
+    
+    // Gets the total earned in the last 90 days (not including the current month)
+
     let totalIncome = 0;
-    const income = await Transaction.find({
-        transactionType: 'Deposit',
-        date: {
-            $gte: threeMonthsAgo,
-            $lt: startOfCurrentMonth
-        }
-    })
 
-    for (let i in income) {
-        totalIncome += income[i].amount;
+    for (let t in transaction) {
+        if(transaction[t].transactionType === 'Deposit'){
+            totalIncome += transaction[t].amount;
+        }
     }
 
+    totalIncome = totalIncome.toFixed(2);
+
+    // Gets the total spent in the last 90 days (not including the current month)
     let totalSpending = 0;
-    const spending = await Transaction.find({
-        transactionType: 'Withdraw',
-        date: {
-            $gte: threeMonthsAgo,
-            $lt: startOfCurrentMonth
+    
+    for (let t in transaction) {
+        if(transaction[t].transactionType === 'Withdraw'){
+            totalSpending += transaction[t].amount;
         }
-    })
-
-    for (let s in spending) {
-        totalSpending += spending[s].amount;
     }
+
+
+   totalSpending = totalSpending.toFixed(2);
+
+
 
     const savings = totalIncome - totalSpending;
     const netSavings = savings.toFixed(2);
 
+
+
+    // Gets the total amount regretted by user and then calulates percentage.
     let regretSpending = 0;
-    const regret = await Transaction.find({
-        regret: true,
-        date: {
-            $gte: threeMonthsAgo,
-            $lt: startOfCurrentMonth
+    
+    for (let t in transaction) {
+        if(transaction[t].regret === true){
+            regretSpending += transaction[t].amount;
         }
-    })
-
-    for (let r in regret){
-        regretSpending += regret[r].amount;
     }
-
+  
     const regretRate = regretSpending/totalSpending * 100;
     const regretRateRounded = regretRate.toFixed(2);
+  
+
 
  //-------------------------------------------Calculate Totals for each category-----------------------------------------------------------------//
 
     // total for 
+
+ 
 
     for (let i =0; i<labels.length; i++) {
         let categorySpending = 0;
@@ -178,6 +188,7 @@ app.get('/analysis', async (req, res) => {
 
     }
 
+    
     res.render('analysis/home', { totalIncome, totalSpending, netSavings, regretRateRounded, labels, totals, regretRates })
 })
 
