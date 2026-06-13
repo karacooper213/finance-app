@@ -85,6 +85,8 @@ app.get('/analysis', async (req, res) => {
     const labels = ['Housing', 'Food', 'Transportation', 'Utilities', 'Insurance', 'Medical', 'Debt', 'Savings', 'Education', 'Fun', 'Household', 'Giving', 'Misc'];
     const totals = [];
     const regretRates = [];
+    const targetRecommendations = [];
+    const differences = [];
 
     const transaction = await Transaction.find({
         date: {
@@ -142,7 +144,10 @@ app.get('/analysis', async (req, res) => {
  //-------------------------------------------Calculate Totals for each category-----------------------------------------------------------------//
 
     // total for 
-
+     
+    let spendingWithoutRegret = regretRateRounded * totalSpending;
+    let newNet = totalIncome - spendingWithoutRegret;
+    
  
 
     for (let i =0; i<labels.length; i++) {
@@ -162,6 +167,22 @@ app.get('/analysis', async (req, res) => {
         }
        
         totals.push(categorySpending);
+        categorySpending = 0;
+           if (newNet >= 0){
+            for (let cs in catSpend) {
+                if(catSpend[cs].regret === false){
+                    categorySpending += catSpend[cs].amount;
+                }
+            }
+
+            } else {
+                for (let cs in catSpend) {
+                    if(catSpend[cs].regret === false && catSpend[cs].necessity !== "Want") {
+                        categorySpending += catSpend[cs].amount;
+                    }
+                }
+            } 
+          targetRecommendations.push(categorySpending)
     }
 
     //------------------------------------Calculate Regret Rates for each category-------------------------------------------------------------------//
@@ -188,8 +209,13 @@ app.get('/analysis', async (req, res) => {
 
     }
 
-    
-    res.render('analysis/home', { totalIncome, totalSpending, netSavings, regretRateRounded, labels, totals, regretRates })
+    for (let i= 0; i<labels.length; i++){
+        let difference = 0;
+        difference = targetRecommendations[i] - totals[i];
+        differences.push(difference);
+    }    
+
+    res.render('analysis/home', { totalIncome, totalSpending, netSavings, regretRateRounded, labels, totals, regretRates, targetRecommendations, differences });
 })
 
 app.listen(3000, () => {

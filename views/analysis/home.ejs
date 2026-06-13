@@ -63,6 +63,7 @@
             </div>
         </div>
         <div id="charts">
+            <div id ="includeTable">
                 <div id="doughnutGraph">
                     <h2>Spending by Category</h2>
                     <div class="doughnut-chart-box">
@@ -70,7 +71,7 @@
                                 id="myChart" >
                         </canvas>
                     </div>
-            </div>
+             </div>
 
                 <div>
                     <script
@@ -123,7 +124,29 @@
             
             
                 </div>
-
+               
+                <table id ="targetCalculationTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Category</th>
+                            <th scope="col">Current spending</th>
+                            <th scope="col">Target Recommendation</th>
+                            <th scope="col">Difference</th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+                            <% for (let i=0; i<labels.length; i++) {%>
+                                <tr>
+                                        <td><%= labels[i] %> </td>
+                                        <td><%= totals[i] %> </td>
+                                        <td><%= targetRecommendations[i] %> </td>
+                                        <td><%= differences[i] %> </td>
+                                </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+        </div>
+            </div>
                 <div id="barGraph">
                     <h2>Regret Rate by Category</h2>
                     <div class="bar-chart-box">
@@ -174,7 +197,8 @@
                                             beginAtZero: true
                                         }
                                     },
-                                    maintainAspectRatio: false
+                                    maintainAspectRatio: false,
+                                    
                                     
                                 
                                 }
@@ -187,6 +211,7 @@
                     </script>
             </div>
         </div>
+       
     </div>
 
 
