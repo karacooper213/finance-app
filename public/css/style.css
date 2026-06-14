@@ -470,6 +470,8 @@ p {
     width: 100%;
     margin-top: 0px;
     border-radius: 10px;
+    position: relative;
+  
    
 }
 
@@ -531,5 +533,43 @@ p {
 #targetCalculationTable td {
     padding: 8px;
     border-bottom: 1px solid #eee;
+   
+}
+
+#barGraphTitle {
+    background-color: #DD4318;
+    margin-top: 0px;
+    
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    
+    
+
+}
+
+#barGraphTitle h2 {
+    text-align: center;
+    padding: 5px;
+    color: white;
+
+}
+
+#doughnutTitle {
+    background-color:#4E8F97;
+    margin-top: 0px;
+   
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+  
+
+
+#doughnutTitle h2{
+    margin-top: 0px;
+    padding: 12px;
+    text-align: center;
+    color: white;
    
 }

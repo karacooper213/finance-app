@@ -35,11 +35,12 @@
                             <h2>Total Income</h2>
                             <h3>Previous three months</h3>
                         </div>
-                        <div class = "summaryBlockValues">
+                        
                             <h2>$<%= totalIncome %></h2>
-                        </div>
+                       
                     </div>
                 </div>
+            
 
             <div id="totalSpending" class="summaryBlocks">
                 <div class="line" id="totalSpendingColor">
@@ -51,7 +52,9 @@
                         <h3>Previous three months</h3>
                     </div>
                 </div>
-               <h2>$<%= totalSpending %></h2>
+               
+                    <h2>$<%= totalSpending %></h2>
+               
             </div>
 
             <div id="netSavings" class="summaryBlocks">
@@ -83,7 +86,9 @@
         <div id="charts">
             <div id ="includeTable">
                 <div id="doughnutGraph">
-                    <h2>Spending by Category</h2>
+                    <div id="doughnutTitle">
+                        <h2>Spending by Category</h2>
+                    </div>
                     <div class="doughnut-chart-box">
                         <canvas
                                 id="myChart" >
@@ -166,7 +171,9 @@
         </div>
             </div>
                 <div id="barGraph">
-                    <h2>Regret Rate by Category</h2>
+                    <div id="barGraphTitle">
+                        <h2>Regret Rate by Category</h2>
+                    </div>
                     <div class="bar-chart-box">
                         <canvas
                                 id="myChart2" >
