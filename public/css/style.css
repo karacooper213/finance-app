@@ -311,22 +311,69 @@ td.Withdraw {
     height: 10vh;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
    
+}
+
+.summaryBlockTitles {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    padding: 0px;
+}
+.fa-wallet {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 30px;
+    color:#1F2B3A;
+    
+}
+
+.fa-credit-card {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 30px;
+    color:#DD4318;
+}
+
+.fa-piggy-bank {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 30px;
+    color:#4E8F97;
+}
+
+.fa-triangle-exclamation {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 30px;
+    color: #45576B;
 }
 
 .totalTitle {
    
-    margin-top: 5px;
-    padding: 3px;
-    font-size: 10px;
-    
-    
+
+   
+    font-size: 10px; 
 
 }
 
+
 #totalIncomeTitle h2{
-    margin: 0px;
-    padding-bottom: 0px;
+    right: 10px;
+    margin: 15px;
+    padding: 15px;
+    
+}
+
+#totalSpendingTitle h2{
+    right: 10px;
+    margin: 15px;
+    padding: 15px;
 }
 
 .line {
@@ -340,6 +387,7 @@ td.Withdraw {
     flex-direction: row;
     gap: 20px;
     margin-top: -16px;
+   
 }
 
 #totalIncomeColor {

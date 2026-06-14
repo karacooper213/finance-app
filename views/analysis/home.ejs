@@ -29,17 +29,27 @@
             <div id="totalIncome" class="summaryBlocks">
                 <div class="line" id="totalIncomeColor" >
                 </div>
-                <div class="totalTitle">
-                    <h2>Total Income</h2>
+                 <i class="fa-solid fa-wallet"></i>
+                    <div class="summaryBlockTitles">
+                        <div class="totalTitle">
+                            <h2>Total Income</h2>
+                            <h3>Previous three months</h3>
+                        </div>
+                        <div class = "summaryBlockValues">
+                            <h2>$<%= totalIncome %></h2>
+                        </div>
+                    </div>
                 </div>
-                <h2>$<%= totalIncome %></h2>
-            </div>
 
             <div id="totalSpending" class="summaryBlocks">
                 <div class="line" id="totalSpendingColor">
                 </div>
-                <div class="totalTitle">
-                    <h2>Total Spending</h2>
+                <i class="fa-solid fa-credit-card"></i>
+                <div class="summaryBlockTitles">
+                    <div class="totalTitle">
+                        <h2>Total Spending</h2>
+                        <h3>Previous three months</h3>
+                    </div>
                 </div>
                <h2>$<%= totalSpending %></h2>
             </div>
@@ -47,8 +57,12 @@
             <div id="netSavings" class="summaryBlocks">
                 <div class="line" id="netSavingsColor" >
                 </div>
-                <div class="totalTitle">
-                    <h2>Net Savings</h2>
+                <i class="fa-solid fa-piggy-bank"></i>
+                <div class="summaryBlockTitles">
+                    <div class="totalTitle">
+                        <h2>Net Savings</h2>
+                        <h3>Previous three months</h3>
+                    </div>
                 </div>
                 <h2>$<%= netSavings %></h2>
             </div>
@@ -56,9 +70,13 @@
             <div id="regretRate" class="summaryBlocks">
                 <div class="line" id="regretRateColor">
                 </div>
-                <div class="totalTitle">
-                    <h2>Regret Rate</h2>
-                </div>
+                <i class="fa solid fa-triangle-exclamation"></i>
+                    <div class="summaryBlockTitles">
+                        <div class="totalTitle">
+                            <h2>Regret Rate</h2>
+                            <h3>Previous three months</h3>
+                        </div>
+                    </div>
                 <h2><%= regretRateRounded %>%</h2> 
             </div>
         </div>
