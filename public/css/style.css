@@ -482,15 +482,6 @@ p {
    
 }
 
-.bar-chart-box {
-    width: 100%;
-    height: 150px;
-}
-
-.doughnut-chart-box {
-    width: 100%;
-   
-}
 
 
 #includeTable {
@@ -524,8 +515,8 @@ p {
 
 #targetCalculationTable th {
     text-align: left;
-    background: #4E8F97;
-    color: white;
+    border-bottom: 5px solid #4E8F97;
+    color: #4E8F97;
     padding: 8px;
    
 }
@@ -537,8 +528,9 @@ p {
 }
 
 #barGraphTitle {
-    background-color: #DD4318;
+   
     margin-top: 0px;
+    border-bottom:5px solid #DD4318;
     
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -549,14 +541,15 @@ p {
 }
 
 #barGraphTitle h2 {
+    
     text-align: center;
-    padding: 5px;
-    color: white;
+    padding: 0px;
+    color: #DD4318;
 
 }
 
 #doughnutTitle {
-    background-color:#4E8F97;
+    
     margin-top: 0px;
    
     border-top-right-radius: 10px;
@@ -570,6 +563,7 @@ p {
     margin-top: 0px;
     padding: 12px;
     text-align: center;
-    color: white;
+    color: #4E8F97;
+    border-bottom:5px solid #4E8F97;
    
 }

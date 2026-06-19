@@ -51,9 +51,10 @@
                         <h2>Total Spending</h2>
                         <h3>Previous three months</h3>
                     </div>
-                </div>
+                
                
                     <h2>$<%= totalSpending %></h2>
+                    </div>
                
             </div>
 
@@ -66,8 +67,9 @@
                         <h2>Net Savings</h2>
                         <h3>Previous three months</h3>
                     </div>
+                    <h2>$<%= netSavings %></h2>
                 </div>
-                <h2>$<%= netSavings %></h2>
+                
             </div>
 
             <div id="regretRate" class="summaryBlocks">
@@ -79,8 +81,9 @@
                             <h2>Regret Rate</h2>
                             <h3>Previous three months</h3>
                         </div>
+                       <h2><%= regretRateRounded %>%</h2>   
                     </div>
-                <h2><%= regretRateRounded %>%</h2> 
+                
             </div>
         </div>
         <div id="charts">

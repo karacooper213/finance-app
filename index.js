@@ -145,7 +145,7 @@ app.get('/analysis', async (req, res) => {
 
     // total for 
      
-    let spendingWithoutRegret = regretRateRounded * totalSpending;
+    let spendingWithoutRegret = totalSpending - regretSpending;
     let newNet = totalIncome - spendingWithoutRegret;
     
  
