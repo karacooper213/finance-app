@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    
+    <%- include('../partials/sidebar') %>
+    <%- include('../partials/navbar') %>
+   
+
+    
+
+    <div class="container-list">
+         
+        <div class="buttons">
+            <a href="/transactions/new" id="icon-btn">+</a>
+       </div>
+     
+        <div>
+            <table class = "transactionTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Date Purchased</th>
+                        <th scope="col">Vendor</th>
+                        <th scope="col">Regret?</th>
+                        <th scope="col">Need vs Want</th>
+                        <th class = "actionButtons"></th>
+                        <th class = "actionButtons"></th>
+                    </tr>
+                </thead>
+                <tbody> 
+                            <% transactions.forEach(transaction => { %>
+                            <tr>
+                                    <td><%= transaction.item %> </td>
+                                    <td class="<%= transaction.transactionType %>">
+                                         $<%= transaction.amount %>
+                                    </td>
+                                    <td><%= transaction.category.name %> </td>
+                                    <td><%= transaction.date.toLocaleDateString('en-US') %> </td>
+                                    <td><%= transaction.vendor %> </td>
+                                    <td><%= transaction.regret %> </td>
+                                    <td><%= transaction.necessity %></td>
+                                    <td class = "actionButtons">
+                                         <a href="/transactions/<%= transaction.id %>/edit">
+                                            <button class="icon-btn-edit"><i class ="fa-solid fa-pen-to-square"></i></button>
+                                        </a>
+                                    </td>
+                                     <td class = "actionButtons">
+                                        <form method = "POST" action="/transactions/<%= transaction.id %>?_method=DELETE">
+                                        <button class ="icon-btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                        </form>  
+                                    </td>
+                                </tr>
+                            <% }) %>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+</html>

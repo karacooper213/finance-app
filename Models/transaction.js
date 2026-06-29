@@ -19,9 +19,9 @@ const transactionSchema = new mongoose.Schema({
     },
 
     category: {
-        type: String,
-        enum: ['Income', 'Housing', 'Food', 'Transportation', 'Utilities', 'Insurance', 'Medical', 'Debt', 'Savings', 'Education', 'Fun', 'Household', 'Giving', 'Misc'],
-        required: false
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category',
+        required: true
     },
 
     date: {
