@@ -24,11 +24,6 @@ router.post('/', async (req, res) => {
 })
 
 
-router.get('/:id', async (req, res) => {
-    const { id } = req.params;
-    const transaction = await Transaction.findById(id).populate('category')
-    res.render('transactions/show', {transaction})
-})
 
 router.get('/:id/edit', async (req, res) => {
     const { id } = req.params;
