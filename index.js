@@ -8,6 +8,8 @@ const Transaction = require('./Models/transaction');
 const Category = require('./Models/categories');
 const transactionRoutes = require('./routes/transactions');
 const analysisRoutes = require('./routes/analysis');
+const budgetRoutes = require('./routes/budgets');
+const settingsRoutes = require('./routes/settings');
 
 mongoose.connect('mongodb://localhost:27017/financeApp')
 .then(() => {
@@ -24,6 +26,8 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/transactions', transactionRoutes);
 app.use('/analysis', analysisRoutes );
+//app.use('/budgets', budgetRoutes);
+app.use('/settings', settingsRoutes);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

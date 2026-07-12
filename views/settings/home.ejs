@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <%- include('../partials/sidebar') %>
+    <%- include('../partials/navbar') %>
+
+    <div class = "container-list">
+        <div class = "contianer-settings-header">
+            <h1 id = "settings">Settings</h1>
+        </div>
+       
+        <div class = "container-categories">
+            <h2>Categories </h2>
+           
+     
+              <table class = "settingsTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Category</th>
+                        <th class = "actionButtons"></th>
+                        <th class = "actionButtons" ><button type="button" class="buttons" id="showCategoryForm"> + </button></th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <tr id="categoryFormRow" class="hidden">
+                        <td colspan="3">
+                            <form method="POST" action="/settings" id="categoryForm" class="inline-category-form"> 
+                                <label for="categoryName"> Category Name</label>
+                                <input type="text" id="categoryName" name="name" required>
+                                <button type="submit" class="buttons">Save</button>
+                                <button type="button" id="cancelCategoryForm" class="buttons">Cancel</button>
+                            </form>
+                        </td>
+                    
+                    </tr>
+                            <% categories.forEach(category => { %>
+                            <tr>
+                                    <td><%= category.name %> </td>
+                                     <td class = "actionButtons">
+                                         <a href="/settings/<%= category.id %>/edit">
+                                            <button class="icon-btn-edit"><i class ="fa-solid fa-pen-to-square"></i></button>
+                                        </a>
+                                    </td>
+                                     <td class = "actionButtons">
+                                        <form method = "POST" action="/settings/<%= category.id %>?_method=DELETE">
+                                        <button class ="icon-btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+                                        </form>  
+                                    </td>
+                                </tr>
+                            <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        const showCategoryFormButton = document.querySelector('#showCategoryForm');
+        const cancelCategoryFormButton = document.querySelector('#cancelCategoryForm');
+        const categoryFormRow = document.querySelector('#categoryFormRow');
+        const categoryForm = document.querySelector('#categoryName');
+
+        showCategoryFormButton.addEventListener('click', () => {
+            categoryFormRow.classList.remove('hidden');
+            showCategoryFormButton.classList.add('hidden');
+            categoryForm.reset();
+        })
+    </script>
+</body>
+</html>

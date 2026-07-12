@@ -567,3 +567,24 @@ p {
     border-bottom:5px solid #4E8F97;
    
 }
+
+.container-categories {
+    width: 25%;
+}
+
+.hidden {
+    display: none;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#categoryForm {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}

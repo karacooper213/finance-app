@@ -44,7 +44,7 @@
                             <tr>
                                     <td><%= transaction.item %> </td>
                                     <td class="<%= transaction.transactionType %>">
-                                         <%= transaction.amount %>
+                                         $<%= transaction.amount %>
                                     </td>
                                     <td><%= transaction.category.name %> </td>
                                     <td><%= transaction.date.toLocaleDateString('en-US') %> </td>
