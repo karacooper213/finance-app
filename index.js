@@ -26,7 +26,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/transactions', transactionRoutes);
 app.use('/analysis', analysisRoutes );
-//app.use('/budgets', budgetRoutes);
+app.use('/budgets', budgetRoutes);
 app.use('/settings', settingsRoutes);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

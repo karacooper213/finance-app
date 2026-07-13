@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Transaction = require('../Models/transaction');
 const Category = require('../Models/categories');
+const Target = require('../Models/targets');
 
 router.get('', async (req, res) => {
     const now = new Date();
@@ -141,6 +142,33 @@ router.get('', async (req, res) => {
         difference = targetRecommendations[i] - totals[i];
         differences.push(difference);
     }    
+
+    //----------------------------------------------------push target Recommendations ----------------------------------------------------------------
+    
+    const targetDate = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        1
+    );
+
+    for (let i =0; i < targetRecommendations.length; i++) {
+        const target = await Target.findOneAndUpdate(
+            {
+            category: categories[i]._id,
+            date: targetDate
+            },
+            {
+            amount: targetRecommendations[i],
+            },
+            {
+                upsert:true,
+                new: true,
+                runValidators: true
+            }
+        )
+
+
+    }
 
     res.render('analysis/home', { totalIncome, totalSpending, netSavings, regretRateRounded, labels, totals, regretRates, targetRecommendations, differences });
 })
